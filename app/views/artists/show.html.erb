@@ -1,0 +1,17 @@
+<h1><%= @artist.name%></h1><br>
+<h2><%= pluralize(@artist.song_count, "Song") %></h2>
+<!-- Add code here to link to the artist's Song. -->
+
+
+<h3>Artist's Songs: </h3><br>
+
+<ul>
+  <% @artist.songs.each  do |s| %>
+    <li><%= link_to s.title, song_path(s) %></li>
+  <% end %>
+</ul>
+
+<!--Also note that we added the if @artist.Song conditional 
+to ensure that the view doesn't try to call @artist.Song.name if the artist has not been associated with a Song.
+-->
+
